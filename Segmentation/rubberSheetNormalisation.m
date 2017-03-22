@@ -108,7 +108,7 @@ function image = rubberSheetNormalisation( img, xPosPupil, yPosPupil, rPupil , x
     
     % Create Normalized Iris Image
     if interpolateQ
-        image = vec2mat(interp2(double(img),[yrt(:);ylt(:)],[xrt(:);xlt(:)]),length(r))';
+        image = uint8(vec2mat(interp2(double(img),[yrt(:);ylt(:)],[xrt(:);xlt(:)]),length(r))');
     else
         image = vec2mat(img(sub2ind(size(img),round([xrt(:);xlt(:)]),round([yrt(:);ylt(:)]))),length(r))';
     end
@@ -117,7 +117,7 @@ function image = rubberSheetNormalisation( img, xPosPupil, yPosPupil, rPupil , x
     if debug
         
         img = insertShape(img, 'circle', [yrt(:),xrt(:),2*ones(size(xrt(:)))],'Color','r');
-        img = insertShape(img, 'circle', [ylt(:),xlt(:),2*ones(size(xrt(:)))],'Color','blue');
+        img = insertShape(img, 'circle', [ylt(:),xlt(:),2*ones(size(xrt(:)))],'Color','r');
         
         figure('name','Sample scheme of the rubber sheet normalization');
         imshow(img);
