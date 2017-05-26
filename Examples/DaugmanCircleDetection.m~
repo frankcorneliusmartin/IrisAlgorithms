@@ -1,0 +1,5 @@
+%% Find the Limbus boundary, with GUI
+[minX, minY, minR, image] = daugmanCircleDetection();
+imshow(image);
+
+%% Find the Limbus boudary without GUI

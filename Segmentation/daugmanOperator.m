@@ -45,7 +45,7 @@ function energy = daugmanOperator( image , x , y , r , varargin )
     addOptional(p, 'sampleShape', 'circle');
     addOptional(p, 'ry', -1, @isnumeric);
     addOptional(p, 'sampleFrequency', 36, @isnumeric);
-    addOptional(p, 'debug', False);
+    addOptional(p, 'debug', 0);
     parse(p,image,x,y,r,varargin{:});
     
     nSamples = p.Results.sampleFrequency;
