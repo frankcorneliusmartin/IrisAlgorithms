@@ -18,7 +18,7 @@ irisRegion = rubberSheetNormalisation( img, xPosPupil, yPosPupil, rPupil , xPosI
 figure(2);
 imshow(irisRegion);
 
-%% Control Radial and Angular Samples
+%% Control Radial and Angular Samples - - - - - - - - - - - - - - - - - -
 %  The following example show you how to define the number of samples in
 %  angular and radial direction. Note that the number of the radial and
 %  angular samples is unusable low, but good to demonstrate the parameters.
@@ -44,7 +44,7 @@ irisRegion = rubberSheetNormalisation( img, xPosPupil, yPosPupil, rPupil , xPosI
 figure(2);
 imshow(irisRegion);
 
-%% Turn Interpolation off
+%% Turn Interpolation off - - - - - - - - - - - - - - - - - -
 %  By default the samples are interpolated, however it is also possible to
 %  use neirest neighbor interpolation (no interpolation). This speeds up
 %  the computation, but is less preciese. 

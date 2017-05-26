@@ -26,18 +26,19 @@ function image = rubberSheetNormalisation( img, xPosPupil, yPosPupil, rPupil , x
 %       - image, containing the normalized iris region
 %
 %   DEPENDANCIES
-%       - Mapping Toolbox
+%       - Communications Toolbox
 %       - Computer Vision System Toolbox (for debugmode)
 %
 %   HISTORY
-%       - 19th June: added the interpolation option
+%       - 26th may 2017: removed Communications Toolbox
+%       - 19th June 2016: added the interpolation option
 %
 %   REFERENCES
 %   (1) How iris recognition works, Daugman, J.G. 
 %
 %   AUTHOR
 %       F.C. Martin <frank@grafikus.nl>
-%       19th of May 2015
+%       19th of May 2015 - 26th may 2017
 %
 % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -108,9 +109,9 @@ function image = rubberSheetNormalisation( img, xPosPupil, yPosPupil, rPupil , x
     
     % Create Normalized Iris Image
     if interpolateQ
-        image = uint8(vec2mat(interp2(double(img),[yrt(:);ylt(:)],[xrt(:);xlt(:)]),length(r))');
+        image = uint8(reshape(interp2(double(img),[yrt(:);ylt(:)],[xrt(:);xlt(:)]),length(r), 2*length(angles))');
     else
-        image = vec2mat(img(sub2ind(size(img),round([xrt(:);xlt(:)]),round([yrt(:);ylt(:)]))),length(r))';
+        image = reshape(img(sub2ind(size(img),round([xrt(:);xlt(:)]),round([yrt(:);ylt(:)]))),length(r), 2*length(angles));
     end
        
     % Show all points on original input image
